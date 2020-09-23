@@ -1,0 +1,209 @@
+= IoBuilders API Service Guide
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+API-service is a rest microservice for management user and payments.
+
+[[overview]]
+= Overview
+[[overview-http-verbs]]
+== HTTP verbs
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP verbs.
+|===
+| Verb | Usage
+| `OPTIONS`
+| Used to list method of resource
+| `GET`
+| Used to retrieve a resource
+| `POST`
+| Used to create a new resource
+| `PUT`
+| Used to update an existing resource, full updates only
+| `DELETE`
+| Used to delete an existing resource
+|===
+[[overview-http-status-codes]]
+== HTTP status codes
+Person-service tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+|===
+| Status code | Usage
+| `200 OK`
+| Standard response for successful HTTP requests.
+| The actual response will depend on the request method used.
+| In a GET request, the response will contain an entity corresponding to the requested resource.
+| In a POST request, the response will contain an entity describing or containing the result of the action.
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+|===
+[[resources]]
+
+= Resources
+[[resources-user]]
+== Users
+The user resource is used to managment users.
+
+=== Retrieve all users
+
+Example of curl command:
+
+include::{snippets}/user-controller-rest-docs-test/get-all-users/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/user-controller-rest-docs-test/get-all-users/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/user-controller-rest-docs-test/get-all-users/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/user-controller-rest-docs-test/get-all-users/response-fields.adoc[]
+
+
+=== Retrieve one user
+
+Example of curl command:
+
+include::{snippets}/user-controller-rest-docs-test/get-user/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/user-controller-rest-docs-test/get-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/user-controller-rest-docs-test/get-user/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/user-controller-rest-docs-test/get-user/response-fields.adoc[]
+
+
+=== Create a user
+
+Example of curl command:
+
+include::{snippets}/user-controller-rest-docs-test/create-user/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/user-controller-rest-docs-test/create-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/user-controller-rest-docs-test/create-user/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/user-controller-rest-docs-test/create-user/response-fields.adoc[]
+
+
+=== Delete a user
+
+Example of curl command:
+
+include::{snippets}/user-controller-rest-docs-test/delete-user/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/user-controller-rest-docs-test/delete-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/user-controller-rest-docs-test/delete-user/http-response.adoc[]
+
+
+=== Update a users
+
+Example of curl command:
+
+include::{snippets}/user-controller-rest-docs-test/update-user/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/user-controller-rest-docs-test/update-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/user-controller-rest-docs-test/update-user/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/user-controller-rest-docs-test/update-user/response-fields.adoc[]
+
+[[resources-payment]]
+
+== Payment
+The Payment resource is used to user transactions.
+
+=== Retrieve all transactions by user
+
+Example of curl command:
+
+include::{snippets}/payment-controller-rest-docs-test/get-all-transaction-by-user/curl-request.adoc[]
+
+Request parameters:
+
+include::{snippets}/payment-controller-rest-docs-test/get-all-transaction-by-user/path-parameters.adoc[]
+
+Example of http request:
+
+include::{snippets}/payment-controller-rest-docs-test/get-all-transaction-by-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/payment-controller-rest-docs-test/get-all-transaction-by-user/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/payment-controller-rest-docs-test/get-all-transaction-by-user/response-fields.adoc[]
+
+=== Retrieve amount of user
+
+Example of curl command:
+
+include::{snippets}/payment-controller-rest-docs-test/get-amount-by-user/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/payment-controller-rest-docs-test/get-amount-by-user/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/payment-controller-rest-docs-test/get-amount-by-user/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/payment-controller-rest-docs-test/get-amount-by-user/response-fields.adoc[]
+
+
+=== Create a transaction
+
+Example of curl command:
+
+include::{snippets}/payment-controller-rest-docs-test/create-transaction/curl-request.adoc[]
+
+Example of http request:
+
+include::{snippets}/payment-controller-rest-docs-test/create-transaction/http-request.adoc[]
+
+Example of http response:
+
+include::{snippets}/payment-controller-rest-docs-test/create-transaction/http-response.adoc[]
+
+Response fields:
+
+include::{snippets}/payment-controller-rest-docs-test/create-transaction/response-fields.adoc[]
